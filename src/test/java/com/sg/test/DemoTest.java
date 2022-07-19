@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 public class DemoTest {
 
 	@DataProvider
-	public String[][] validData() {
-		String[][] main = new String[4][2];
+	public Object[][] validData() {
+		Object[][] main = new Object[4][2];
 		// i--> number of testcase
 		// j--> number of arguments/parameters
 
-		main[0][0] = "Peter";
+		main[0][0] = "peter";
 		main[0][1] = "peter123";
 
 		main[1][0] = "mark";

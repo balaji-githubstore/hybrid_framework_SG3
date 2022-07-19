@@ -2,6 +2,7 @@ package com.sg.test;
 
 import org.openqa.selenium.By;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.sg.base.WebDriverWrapper;
@@ -21,9 +22,8 @@ public class LoginTest extends WebDriverWrapper {
 		Assert.assertEquals(actualUrl, "https://opensource-demo.orangehrmlive.com/index.php/dashboard");
 	}
 
-	//create a dataprovider - invalidCredentialData
-		//Peter,Peter123, Invalid credentials
-//	john,john123, Invalid credentials
+	
+	
 	
 	@Test
 	public void invalidCredentialTest(String username,String password,String expectedError) {
