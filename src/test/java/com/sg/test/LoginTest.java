@@ -23,9 +23,23 @@ public class LoginTest extends WebDriverWrapper {
 	}
 
 	
+	@DataProvider
+	public Object[][] invalidCredentialData()
+	{
+		Object[][] main=new Object[2][3];
+		
+		main[0][0]="Peter";
+		main[0][1]="Peter123";
+		main[0][2]="Invalid credentials";
+		
+		main[1][0]="john";
+		main[1][1]="john123";
+		main[1][2]="Invalid credentials";
+		
+		return main;
+	}
 	
-	
-	@Test
+	@Test(dataProvider = "invalidCredentialData")
 	public void invalidCredentialTest(String username,String password,String expectedError) {
 		
 		driver.findElement(By.id("txtUsername")).sendKeys(username);
