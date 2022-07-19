@@ -22,7 +22,7 @@ public class ExcelDemo {
 		
 		DataFormatter format=new DataFormatter();
 		
-		//create Object[][] --> 	[3][3]
+		Object[][] main=new Object[3][3];	
 		
 		for(int r=1;r<4;r++)
 		{
@@ -30,8 +30,9 @@ public class ExcelDemo {
 			{
 				String value =format.formatCellValue(sheet.getRow(r).getCell(c));
 				System.out.println(value);
+				main[r-1][c]=value;
 			}
-			System.out.println("--------------");
+			System.out.println("----------------------");
 		}
 		
 		
