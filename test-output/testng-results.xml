@@ -1,82 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="3" passed="1" failed="1" skipped="0">
+<testng-results ignored="0" total="1" passed="0" failed="0" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-07-19T15:00:28 IST" name="Default suite" finished-at="2022-07-19T15:01:25 IST" duration-ms="56902">
+  <suite started-at="2022-07-19T18:03:36 IST" name="Orange HRM Suite" finished-at="2022-07-19T18:03:36 IST" duration-ms="86">
     <groups>
     </groups>
-    <test started-at="2022-07-19T15:00:28 IST" name="Default test" finished-at="2022-07-19T15:01:25 IST" duration-ms="56902">
-      <class name="com.sg.test.LoginTest">
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.sg.test.LoginTest@2c1b194a]" started-at="2022-07-19T15:00:46 IST" name="setup" finished-at="2022-07-19T15:00:55 IST" duration-ms="8879" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="validCredentialTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.sg.test.LoginTest@2c1b194a]" started-at="2022-07-19T15:00:55 IST" name="validCredentialTest" data-provider="validCredentialData" finished-at="2022-07-19T15:01:07 IST" duration-ms="11552" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Admin]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[admin123]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[https://opensource-demo.orangehrmlive.com/index.php/dashboard]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- validCredentialTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.sg.test.LoginTest@2c1b194a]" started-at="2022-07-19T15:01:07 IST" name="teardown" finished-at="2022-07-19T15:01:07 IST" duration-ms="541" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- teardown -->
-        <test-method is-config="true" signature="setup()[pri:0, instance:com.sg.test.LoginTest@2c1b194a]" started-at="2022-07-19T15:01:07 IST" name="setup" finished-at="2022-07-19T15:01:14 IST" duration-ms="6991" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="validCredentialTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.sg.test.LoginTest@2c1b194a]" started-at="2022-07-19T15:01:14 IST" name="validCredentialTest" data-provider="validCredentialData" finished-at="2022-07-19T15:01:25 IST" duration-ms="10616" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[Admin]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[admin1234]]>
-              </value>
-            </param>
-            <param index="2">
-              <value>
-                <![CDATA[https://opensource-demo.orangehrmlive.com/index.php/dashboard]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
+    <test started-at="2022-07-19T18:03:36 IST" name="Orange HRM Test" finished-at="2022-07-19T18:03:36 IST" duration-ms="86">
+      <class name="com.sg.test.LoginUITest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:com.sg.test.LoginUITest@437da279]" started-at="2022-07-19T18:03:36 IST" name="setup" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1658234016055" status="FAIL">
+          <exception class="org.testng.TestNGException">
             <message>
-              <![CDATA[expected [https://opensource-demo.orangehrmlive.com/index.php/dashboard] but found [https://opensource-demo.orangehrmlive.com/index.php/auth/validateCredentials]]]>
+              <![CDATA[
+Parameter 'browser' is required by BeforeMethod on method setup but has not been marked @Optional or defined
+in D:\Mine\Company\Scientific Games3\automation_workspace\OrangeHRMAutomation\testng.xml]]>
             </message>
             <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [https://opensource-demo.orangehrmlive.com/index.php/dashboard] but found [https://opensource-demo.orangehrmlive.com/index.php/auth/validateCredentials]
-at org.testng.Assert.fail(Assert.java:110)
-at org.testng.Assert.failNotEquals(Assert.java:1413)
-at org.testng.Assert.assertEqualsImpl(Assert.java:149)
-at org.testng.Assert.assertEquals(Assert.java:131)
-at org.testng.Assert.assertEquals(Assert.java:655)
-at org.testng.Assert.assertEquals(Assert.java:665)
-at com.sg.test.LoginTest.validCredentialTest(LoginTest.java:22)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
-at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-at org.testng.internal.invokers.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:135)
-at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:673)
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'browser' is required by BeforeMethod on method setup but has not been marked @Optional or defined
+in D:\Mine\Company\Scientific Games3\automation_workspace\OrangeHRMAutomation\testng.xml
+at org.testng.internal.Parameters.createParams(Parameters.java:267)
+at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:355)
+at org.testng.internal.Parameters.createParameters(Parameters.java:660)
+at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:166)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:300)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:803)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:589)
 at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
 at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
 at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
@@ -101,15 +49,61 @@ at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
 at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 ]]>
             </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
+          </exception> <!-- org.testng.TestNGException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- validCredentialTest -->
-        <test-method is-config="true" signature="teardown()[pri:0, instance:com.sg.test.LoginTest@2c1b194a]" started-at="2022-07-19T15:01:25 IST" name="teardown" finished-at="2022-07-19T15:01:25 IST" duration-ms="543" status="PASS">
+        </test-method> <!-- setup -->
+        <test-method signature="verifyTitleTest()[pri:0, instance:com.sg.test.LoginUITest@437da279]" started-at="2022-07-19T18:03:36 IST" name="verifyTitleTest" finished-at="2022-07-19T18:03:36 IST" duration-ms="2" status="SKIP">
+          <exception class="org.testng.TestNGException">
+            <message>
+              <![CDATA[
+Parameter 'browser' is required by BeforeMethod on method setup but has not been marked @Optional or defined
+in D:\Mine\Company\Scientific Games3\automation_workspace\OrangeHRMAutomation\testng.xml]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.testng.TestNGException: 
+Parameter 'browser' is required by BeforeMethod on method setup but has not been marked @Optional or defined
+in D:\Mine\Company\Scientific Games3\automation_workspace\OrangeHRMAutomation\testng.xml
+at org.testng.internal.Parameters.createParams(Parameters.java:267)
+at org.testng.internal.Parameters.createParametersForMethod(Parameters.java:355)
+at org.testng.internal.Parameters.createParameters(Parameters.java:660)
+at org.testng.internal.Parameters.createConfigurationParameters(Parameters.java:166)
+at org.testng.internal.invokers.ConfigInvoker.invokeConfigurations(ConfigInvoker.java:300)
+at org.testng.internal.invokers.TestInvoker.runConfigMethods(TestInvoker.java:803)
+at org.testng.internal.invokers.TestInvoker.invokeMethod(TestInvoker.java:589)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethod(TestInvoker.java:220)
+at org.testng.internal.invokers.MethodRunner.runInSequence(MethodRunner.java:50)
+at org.testng.internal.invokers.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:945)
+at org.testng.internal.invokers.TestInvoker.invokeTestMethods(TestInvoker.java:193)
+at org.testng.internal.invokers.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.invokers.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+at org.testng.TestRunner.privateRun(TestRunner.java:808)
+at org.testng.TestRunner.run(TestRunner.java:603)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:429)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:423)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:383)
+at org.testng.SuiteRunner.run(SuiteRunner.java:326)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:95)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1249)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1169)
+at org.testng.TestNG.runSuites(TestNG.java:1092)
+at org.testng.TestNG.run(TestNG.java:1060)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.testng.TestNGException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleTest -->
+        <test-method is-config="true" signature="teardown()[pri:0, instance:com.sg.test.LoginUITest@437da279]" started-at="2022-07-19T18:03:36 IST" name="teardown" finished-at="2022-07-19T18:03:36 IST" duration-ms="0" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- com.sg.test.LoginTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      </class> <!-- com.sg.test.LoginUITest -->
+    </test> <!-- Orange HRM Test -->
+  </suite> <!-- Orange HRM Suite -->
 </testng-results>
