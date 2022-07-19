@@ -13,4 +13,5 @@ public class LoginUITest extends WebDriverWrapper {
 		Assert.assertEquals(driver.getTitle(), "OrangeHRM");
 	}
 
+	
 }
