@@ -20,23 +20,25 @@ public class ExcelDemo {
 		 
 		XSSFSheet sheet= book.getSheet("invalidCredentialTest");
 		
+		int rowCount=sheet.getPhysicalNumberOfRows();
+		int cellCount=sheet.getRow(0).getPhysicalNumberOfCells();
+		
 		DataFormatter format=new DataFormatter();
 		
-		Object[][] main=new Object[3][3];	
+		Object[][] main=new Object[rowCount-1][cellCount];	
 		
-		for(int r=1;r<4;r++)
+		for(int r=1;r<rowCount;r++)
 		{
-			for(int c=0;c<3;c++)
+			for(int c=0;c<cellCount;c++)
 			{
 				String value =format.formatCellValue(sheet.getRow(r).getCell(c));
 				System.out.println(value);
 				main[r-1][c]=value;
 			}
-			System.out.println("----------------------");
 		}
 		
 		
-		
+		System.out.println(main);
 		
 		
 		book.close();
