@@ -23,7 +23,7 @@ public class LoginTest extends WebDriverWrapper {
 		test.log(Status.INFO, "Clicked on login");
 
 		// wait for some element in that new page present
-
+		
 		String actualUrl = driver.getCurrentUrl();
 		test.log(Status.INFO, "actualUrl="+actualUrl);
 		

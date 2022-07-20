@@ -29,36 +29,31 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class WebDriverWrapper {
 
 	protected WebDriver driver;
-	
+
 	private static ExtentReports extent;
 	protected static ExtentTest test;
-	
+
 	@BeforeSuite
-	public void init()
-	{
-		if(extent ==null)
-		{
+	public void init() {
+		if (extent == null) {
 			extent = new ExtentReports();
 			ExtentSparkReporter spark = new ExtentSparkReporter("target/Spark.html");
 			extent.attachReporter(spark);
 		}
 	}
 
-	
 	@AfterSuite
-	public void end()
-	{
+	public void end() {
 		extent.flush();
 	}
-	
-	
+
 	@BeforeMethod(alwaysRun = true)
 	@Parameters({ "browser" })
-	public void setup(@Optional("ch") String browserName,Method method) {
+	public void setup(@Optional("ch") String browserName, Method method) {
 
-		//create test in extent report
-		test=extent.createTest(method.getName());
-		
+		// create test in extent report
+		test = extent.createTest(method.getName());
+
 		if (browserName.equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
@@ -77,8 +72,8 @@ public class WebDriverWrapper {
 
 	@AfterMethod(alwaysRun = true)
 	public void teardown(ITestResult result) {
-		
-		//logging test method on the result
+
+		// logging test method on the result
 		if (result.getStatus() == ITestResult.FAILURE) {
 			test.log(Status.FAIL, MarkupHelper.createLabel(result.getName() + " FAILED ", ExtentColor.RED));
 			test.fail(result.getThrowable());
@@ -88,14 +83,18 @@ public class WebDriverWrapper {
 			test.log(Status.SKIP, MarkupHelper.createLabel(result.getName() + " SKIPPED ", ExtentColor.ORANGE));
 			test.skip(result.getThrowable());
 		}
-		
-		TakesScreenshot ts=(TakesScreenshot) driver;
-		String base64= ts.getScreenshotAs(OutputType.BASE64);
-		
-		//embed the screenshot to html
-		test.addScreenCaptureFromBase64String(base64);
-		
+		//method created and called
+		embedScreenshotToExtentReport();
+
 		driver.quit();
+	}
+
+	public void embedScreenshotToExtentReport() {
+		TakesScreenshot ts = (TakesScreenshot) driver;
+		String base64 = ts.getScreenshotAs(OutputType.BASE64);
+
+		// embed the screenshot to html
+		test.addScreenCaptureFromBase64String(base64);
 	}
 
 }
