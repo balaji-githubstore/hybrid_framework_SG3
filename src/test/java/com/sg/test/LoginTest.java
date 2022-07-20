@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.Status;
 import com.sg.base.WebDriverWrapper;
 import com.sg.utilities.DataUtils;
 	
@@ -13,12 +14,19 @@ public class LoginTest extends WebDriverWrapper {
 	public void validCredentialTest(String username,String password,String expectedUrl) {
 
 		driver.findElement(By.id("txtUsername")).sendKeys(username);
+		test.log(Status.INFO, "Entered Username: "+username);
+		
 		driver.findElement(By.cssSelector("#txtPassword")).sendKeys(password);
+		test.log(Status.INFO, "Entered password: "+password);
+		
 		driver.findElement(By.cssSelector("[name='Submit']")).click();
+		test.log(Status.INFO, "Clicked on login");
 
 		// wait for some element in that new page present
 
 		String actualUrl = driver.getCurrentUrl();
+		test.log(Status.INFO, "actualUrl="+actualUrl);
+		
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}
 
