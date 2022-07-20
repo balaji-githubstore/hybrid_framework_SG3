@@ -7,7 +7,12 @@
 
 	<test thread-count="5" name="Orange HRM Test-Chrome1">
 		<classes>
-			<class name="com.sg.test.LoginUITest" />
+			<class name="com.sg.test.LoginTest">
+				<methods>
+					<include name="validCredentialTest"></include>
+				</methods>
+
+			</class>
 		</classes>
 	</test> <!-- Test -->
 

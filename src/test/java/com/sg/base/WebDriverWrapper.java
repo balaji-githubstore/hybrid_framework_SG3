@@ -17,7 +17,7 @@ public class WebDriverWrapper {
 
 	protected WebDriver driver;
 
-	@BeforeMethod
+	@BeforeMethod(alwaysRun = true)
 	@Parameters({ "browser" })
 	public void setup(@Optional("ch") String browserName) {
 
@@ -37,7 +37,7 @@ public class WebDriverWrapper {
 		driver.get("https://opensource-demo.orangehrmlive.com/");
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void teardown() {
 		driver.quit();
 	}

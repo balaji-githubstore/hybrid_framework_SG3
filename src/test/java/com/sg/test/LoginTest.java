@@ -9,7 +9,7 @@ import com.sg.utilities.DataUtils;
 	
 public class LoginTest extends WebDriverWrapper {
 
-	@Test(dataProviderClass = DataUtils.class,dataProvider = "validCredentialData")
+	@Test(dataProviderClass = DataUtils.class,dataProvider = "commonDataProvider",groups = {"positive","high"})
 	public void validCredentialTest(String username,String password,String expectedUrl) {
 
 		driver.findElement(By.id("txtUsername")).sendKeys(username);
@@ -22,7 +22,7 @@ public class LoginTest extends WebDriverWrapper {
 		Assert.assertEquals(actualUrl, expectedUrl);
 	}
 
-	@Test(dataProviderClass = DataUtils.class,dataProvider = "invalidCredentialData")
+	@Test(dataProviderClass = DataUtils.class,dataProvider = "commonDataProvider",groups = {"negative","low"})
 	public void invalidCredentialTest(String username, String password, String expectedError) {
 		driver.findElement(By.id("txtUsername")).sendKeys(username);
 		driver.findElement(By.cssSelector("#txtPassword")).sendKeys(password);
