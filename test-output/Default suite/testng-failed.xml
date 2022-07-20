@@ -3,13 +3,15 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.sg.test.LoginTest">
+      <class name="com.sg.test.LoginUITest">
         <methods>
+          <include name="init"/>
           <include name="teardown"/>
-          <include name="validCredentialTest" invocation-numbers="1"/>
+          <include name="end"/>
+          <include name="verifyTitleTest"/>
           <include name="setup"/>
         </methods>
-      </class> <!-- com.sg.test.LoginTest -->
+      </class> <!-- com.sg.test.LoginUITest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
