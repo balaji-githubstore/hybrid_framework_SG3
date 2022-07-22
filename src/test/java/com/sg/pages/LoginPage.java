@@ -1,5 +1,5 @@
 package com.sg.pages;
-
+//static methods
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -29,4 +29,5 @@ public class LoginPage {
 	public static void clickOnLinkedin(WebDriver driver) {
 		driver.findElement(linkedinLocator).click();
 	}
+	//will start at 4:
 }
