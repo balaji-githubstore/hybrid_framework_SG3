@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import com.aventstack.extentreports.Status;
 import com.sg.base.WebDriverWrapper;
 import com.sg.utilities.DataUtils;
-	
+	//no page objects
 public class LoginTest extends WebDriverWrapper {
 
 	@Test(dataProviderClass = DataUtils.class,dataProvider = "commonDataProvider",groups = {"positive","high"})
