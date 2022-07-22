@@ -12,9 +12,11 @@ public class EmergencyContactTest extends WebDriverWrapper{
 	@Test(dataProviderClass = DataUtils.class,dataProvider = "commonDataProvider")
 	public void addValidEmergencyContactTest(String username,String password,String name,String relationship,String homeTelephone,String workTelephone,String mobile,String expectedValue)
 	{
-		LoginPage.enterUsername(driver, username);
-		LoginPage.enterPassword(driver, password);
-		LoginPage.clickOnLogin(driver);
+		LoginPage login = new LoginPage(driver);
+
+		login.enterUsername(username);
+		login.enterPassword(password);
+		login.clickOnLogin();
 		
 		driver.findElement(By.linkText("My Info")).click();
 		driver.findElement(By.partialLinkText("Emergency Con")).click();

@@ -5,14 +5,21 @@ import org.openqa.selenium.WebDriver;
 
 public class MainPage {
 
-	private static By myInfoLocator=By.partialLinkText("My Info");
+	private By myInfoLocator=By.partialLinkText("My Info");
 	
-	public static String getMainPageUrl(WebDriver driver)
+	private WebDriver driver;
+
+	public MainPage(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	
+	public String getMainPageUrl()
 	{
 		return driver.getCurrentUrl();
 	}
 	
-	public static void clickOnMyInfo(WebDriver driver)
+	public void clickOnMyInfo()
 	{
 		driver.findElement(myInfoLocator).click();
 	}
