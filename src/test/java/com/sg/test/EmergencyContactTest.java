@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.testng.annotations.Test;
 
 import com.sg.base.WebDriverWrapper;
+import com.sg.pages.LoginPage;
 import com.sg.utilities.DataUtils;
 
 public class EmergencyContactTest extends WebDriverWrapper{
@@ -11,9 +12,10 @@ public class EmergencyContactTest extends WebDriverWrapper{
 	@Test(dataProviderClass = DataUtils.class,dataProvider = "commonDataProvider")
 	public void addValidEmergencyContactTest(String username,String password,String name,String relationship,String homeTelephone,String workTelephone,String mobile,String expectedValue)
 	{
-		driver.findElement(By.id("txtUsername")).sendKeys(username);
-		driver.findElement(By.cssSelector("#txtPassword")).sendKeys(password);
-		driver.findElement(By.cssSelector("[name='Submit']")).click();
+		LoginPage.enterUsername(driver, username);
+		LoginPage.enterPassword(driver, password);
+		LoginPage.clickOnLogin(driver);
+		
 		driver.findElement(By.linkText("My Info")).click();
 		driver.findElement(By.partialLinkText("Emergency Con")).click();
 		
