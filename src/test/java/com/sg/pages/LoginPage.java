@@ -3,7 +3,9 @@ package com.sg.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
+import com.sg.base.WebDriverKeywords;
+
+public class LoginPage extends WebDriverKeywords {
 	private By usernameLocator = By.id("txtUsername");
 	private By passwordLocator = By.cssSelector("#txtPassword");
 	private By loginLocator = By.cssSelector("[name='Submit']");
@@ -13,23 +15,24 @@ public class LoginPage {
 	private WebDriver driver;
 
 	public LoginPage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 	}
 
 	public void enterUsername(String username) {
-		driver.findElement(usernameLocator).sendKeys(username);
+		typeUsingLocator(usernameLocator, username);
 	}
 
 	public void enterPassword(String password) {
-		driver.findElement(passwordLocator).sendKeys(password);
+		typeUsingLocator(passwordLocator, password);
 	}
 
 	public void clickOnLogin() {
-		driver.findElement(loginLocator).click();
+		super.clickUsingLocator(loginLocator);
 	}
 
 	public String getInvalidErrorMessage() {
-		return driver.findElement(errorLocator).getText();
+		return super.getTextUsingLocator(errorLocator);
 	}
 
 	public void clickOnLinkedin() {
