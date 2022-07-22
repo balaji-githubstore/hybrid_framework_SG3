@@ -1,5 +1,6 @@
 package com.sg.base;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.time.Duration;
 
@@ -24,6 +25,7 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.sg.utilities.PropUtils;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -50,10 +52,18 @@ public class WebDriverWrapper {
 
 	@BeforeMethod(alwaysRun = true)
 	@Parameters({ "browser","headless" })
-	public void setup(@Optional("ch") String browserName,@Optional("no") String headless, Method method) {
+	public void setup(@Optional("ch") String browserName,@Optional("no") String headless, Method method) throws IOException {
 
 		// create test in extent report
 		test = extent.createTest(method.getName());
+		
+		//high pref to properties
+		String browerProp=  PropUtils.getValueUsingKey("testdata/data.properties", "browser");
+		if(! browerProp.equalsIgnoreCase("NA"))
+		{
+			browserName=browerProp;
+		}
+	
 
 		if (browserName.equalsIgnoreCase("edge")) {
 			WebDriverManager.edgedriver().setup();
@@ -76,7 +86,10 @@ public class WebDriverWrapper {
 
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
-		driver.get("https://opensource-demo.orangehrmlive.com/");
+		
+		String baseUrl=  PropUtils.getValueUsingKey("testdata/data.properties", "url");
+		
+		driver.get(baseUrl);
 	}
 
 	@AfterMethod(alwaysRun = true)
